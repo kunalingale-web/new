@@ -1,0 +1,35 @@
+body {
+    margin-top: 600px;
+    background-color: rgb(7, 0, 0);
+    
+}
+
+
+.traffic-light {
+    width: 920px;
+    height: 1530px;
+    background-color: rgb(245, 242, 242);
+    margin: 100px auto;
+    padding: 15px;
+    
+
+
+.red,.yellow,.green {
+    width: 490px;
+    height: 490px;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+.red {
+    background-color: red;
+}
+
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
