@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instrument Details - Shree Sai Musical</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" stroke="#C89B3C" stroke-width="1.2"/>
+        <path d="M13 27V13.5L27 11v13.5" stroke="#C89B3C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="13" cy="27" r="3" stroke="#C89B3C" stroke-width="1.4"/>
+        <circle cx="27" cy="24.5" r="3" stroke="#C89B3C" stroke-width="1.4"/>
+      </svg>
+      <span>Shree Sai<small>Musical House</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Store</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+    <a href="feedback.html" class="nav-cta">Visit Us &rarr;</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero instrument-detail-hero">
+    <div class="wrap">
+      <a class="back-link" href="products.html">&larr; Back to all products</a>
+      <span class="eyebrow" id="category">Instrument details</span>
+      <h1 id="instrument-name">Instrument</h1>
+      <p class="lede" id="instrument-intro"></p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Models &amp; specifications</span>
+        <h2>Choose the right fit for your music</h2>
+      </div>
+      <div class="model-grid" id="model-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Shree Sai Musical</span>
+      <span>Set up and playability-checked in our workshop</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const instruments = {
+    guitar: {
+      name: 'Classic Acoustic Guitar', category: 'Strings', intro: 'Compare our beginner-friendly acoustic guitar models, each set up and ready to play.',
+      models: [
+        ['Kadence Frontier 40', 'Kadence', 'Steel-string acoustic', 'Spruce top | 40-inch body | Rosewood fingerboard', 'INR 4,500'],
+        ['Yamaha F280', 'Yamaha', 'Dreadnought acoustic', 'Spruce top | 20 frets | Rosewood bridge', 'INR 7,000'],
+        ['Vault EA40', 'Vault', 'Cutaway acoustic', 'Spruce top | Built-in tuner | 40-inch body', 'INR 6,500']
+      ]
+    },
+    sitar: {
+      name: 'Concert Sitar', category: 'Strings', intro: 'Traditional sitars with different builds for learning, performance, and professional concerts.',
+      models: [
+        ['Student Sitar', 'Handmade', '7-string sitar', 'Tun wood | 13 sympathetic strings | Light action', 'INR 28,000'],
+        ['Concert Sitar', 'Rikhi Ram', '7-string concert sitar', 'Rosewood taravs | 20 frets | Seasoned tumba', 'INR 45,000'],
+        ['Professional Rosewood Sitar', 'Rikhi Ram', 'Professional sitar', 'Rosewood body | Premium taravs | Custom tuning', 'INR 65,000']
+      ]
+    },
+    violin: {
+      name: '1/2 & Full-Size Violin', category: 'Strings', intro: 'Choose a violin size and build that matches the player, from first lessons to stage performance.',
+      models: [
+        ['1/2 Size Beginner Violin', 'Vault', 'Half-size acoustic violin', 'Ages 6-8 | Spruce top | Bow and rosin included', 'INR 6,000'],
+        ['3/4 Size Student Violin', 'Cremona', 'Three-quarter acoustic violin', 'Ages 9-12 | Maple back | Ebony fittings', 'INR 10,000'],
+        ['Full-Size Concert Violin', 'Cremona', '4/4 acoustic violin', 'Solid spruce top | Hand-finished | Premium bow', 'INR 18,000']
+      ]
+    },
+    tabla: {
+      name: 'Tabla Set (Dayan-Bayan)', category: 'Percussion', intro: 'Hand-dressed tabla pairs with distinct woods, sizes, and tuning for practice or performance.',
+      models: [
+        ['Student Tabla Set', 'Handmade', 'Copper bayan pair', 'Sheesham dayan | Copper bayan | Practice heads', 'INR 9,000'],
+        ['Delhi Gharana Set', 'Haridas Vhatkar', 'Brass bayan pair', 'Tun wood dayan | Brass bayan | Fine syahi', 'INR 15,000'],
+        ['Concert Sheesham Tabla Set', 'Haridas Vhatkar', 'Professional tabla pair', 'Premium sheesham | Brass bayan | Concert tuning', 'INR 22,000']
+      ]
+    },
+    dholak: {
+      name: 'Dholak', category: 'Percussion', intro: 'Folk dholaks in three sizes, with hand-selected wood and natural skin heads.',
+      models: [
+        ['Small Student Dholak', 'Handmade', 'Small rope-tuned drum', 'Mango wood | Goat skin | 16-inch shell', 'INR 3,500'],
+        ['Medium Folk Dholak', 'Handmade', 'Medium rope-tuned drum', 'Mango wood | Natural skins | 20-inch shell', 'INR 5,000'],
+        ['Large Stage Dholak', 'Handmade', 'Large performance drum', 'Sheesham wood | Reinforced shell | 24-inch shell', 'INR 6,500']
+      ]
+    },
+    drums: {
+      name: '5-Piece Drum Kit', category: 'Percussion', intro: 'Complete acoustic kits for new players, rehearsal rooms, and live performance.',
+      models: [
+        ['Pearl Roadshow 5-Piece', 'Pearl', '5-piece acoustic kit', '22-inch kick | Cymbals included | Drum throne', 'INR 32,000'],
+        ['Tama Rhythm Mate', 'Tama', '5-piece acoustic kit', '22-inch kick | 6-ply shells | Hardware pack', 'INR 45,000'],
+        ['Mapex Tornado Kit', 'Mapex', '5-piece acoustic kit', '22-inch kick | Dual-braced stands | Cymbals', 'INR 58,000']
+      ]
+    },
+    harmonium: {
+      name: 'Bellows Harmonium', category: 'Wind & Keys', intro: 'Harmoniums with different reed layouts and features for practice, bhajan, and stage use.',
+      models: [
+        ['3-Octave Student Harmonium', 'Bina', 'Single-reed harmonium', '3 octaves | 2 reeds | Compact body', 'INR 8,500'],
+        ['3¼-Octave Folding Harmonium', 'Pal Music House', 'Double-reed harmonium', '3¼ octaves | Folding design | A440 tuned', 'INR 15,000'],
+        ['Coupler Scale-Changer Harmonium', 'Bina', 'Coupler harmonium', '3¾ octaves | Scale changer | 9 stops', 'INR 24,000']
+      ]
+    },
+    bansuri: {
+      name: 'Bansuri Flute Set', category: 'Wind & Keys', intro: 'Seasoned bamboo bansuris across common scales for learners, accompanists, and performers.',
+      models: [
+        ['Beginner C Scale Bansuri', 'Handmade', 'Bamboo transverse flute', 'C scale | 6 finger holes | Beginner length', 'INR 450'],
+        ['Middle G Scale Bansuri', 'Handmade', 'Bamboo transverse flute', 'G scale | 6 finger holes | Seasoned bamboo', 'INR 1,100'],
+        ['Professional E Scale Bansuri', 'Handmade', 'Bamboo transverse flute', 'E scale | 7 finger holes | Performance grade', 'INR 2,200']
+      ]
+    },
+    keyboard: {
+      name: '61-Key Portable Keyboard', category: 'Wind & Keys', intro: 'Portable keyboards with lesson features, accompaniment styles, and sounds for every stage.',
+      models: [
+        ['Casio CT-S300', 'Casio', '61-key portable keyboard', '400 tones | Lesson mode | Battery powered', 'INR 6,500'],
+        ['Yamaha PSR-E373', 'Yamaha', '61-key arranger keyboard', '622 voices | Touch response | USB support', 'INR 12,000'],
+        ['Casio CT-X700', 'Casio', '61-key portable keyboard', '600 tones | AiX sound source | 195 rhythms', 'INR 15,000']
+      ]
+    }
+  };
+
+  const key = new URLSearchParams(window.location.search).get('instrument') || 'guitar';
+  const instrument = instruments[key] || instruments.guitar;
+  document.title = instrument.name + ' - Shree Sai Musical';
+  document.getElementById('category').textContent = instrument.category;
+  document.getElementById('instrument-name').textContent = instrument.name;
+  document.getElementById('instrument-intro').textContent = instrument.intro;
+  document.getElementById('model-list').innerHTML = instrument.models.map((model) => `
+    <article class="model-card">
+      <span class="tag">${model[1]}</span>
+      <h3>${model[0]}</h3>
+      <p class="model-type">${model[2]}</p>
+      <p>${model[3]}</p>
+      <p class="price">${model[4]}</p>
+    </article>`).join('');
+</script>
+</body>
+</html>
